@@ -1,19 +1,25 @@
 package org.migdb.migdbserver.main.resources;
 
+import org.migdb.migdbserver.main.neuralnetwork.NeuralNetwork;
+
 public class NeuralResponse {
 	
-	private String responseId = "res745867498";
-	private String mappingModel = "EMBEDDING";
-	private String collectionOrder = "L2R";
-	private String clientId = "cli75345693598";
+	private String responseId;
+	private String mappingModel;
+	private String collectionOrder;
+	private String clientId;
 	private String requestId;
 	
 	public NeuralResponse(){
 		
 	}
 	
-	public NeuralResponse(String requestID){
-		this.requestId = requestID;
+	public NeuralResponse(NeuralNetwork neuralnetwork){
+		this.requestId = neuralnetwork.getRequestId();
+		this.clientId = neuralnetwork.getClientId();
+		this.collectionOrder = neuralnetwork.getCollectionOrder();
+		this.mappingModel = neuralnetwork.getMappingModel();
+		this.responseId = neuralnetwork.getResponseId();
 	}
 	
 	public String getRequestId() {
