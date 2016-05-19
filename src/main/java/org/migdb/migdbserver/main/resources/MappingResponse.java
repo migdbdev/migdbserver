@@ -14,16 +14,17 @@ public class MappingResponse {
 	private Date expiryTime;
 	private String mappingModel;
 	private String collectionOrder;
-	private String messageFromServer;
+	private String moreInformation;
 	
 	
 	public MappingResponse(String responseId, String clientId, String requestId, 
-			                String mappingModel){
+			                String mappingModel,String moreInformation){
 		this.responseId = responseId;
 		this.clientId = clientId;
 		this.requestId = requestId;
 		this.createdTime = new Date();
 		this.mappingModel = mappingModel;
+		this.moreInformation = moreInformation;
 	}
 	
 	public MappingResponse(){
@@ -74,10 +75,10 @@ public class MappingResponse {
 		this.collectionOrder = collectionOrder;
 	}
 	public String getMessageFromServer() {
-		return messageFromServer;
+		return moreInformation;
 	}
 	public void setMessageFromServer(String messageFromServer) {
-		this.messageFromServer = messageFromServer;
+		this.moreInformation = messageFromServer;
 	}
 	
 	

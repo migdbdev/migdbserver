@@ -9,7 +9,16 @@ public class NeuralResponse {
 	private String collectionOrder;
 	private String clientId;
 	private String requestId;
+	private String moreInformation;
 	
+	public String getMoreInformation() {
+		return moreInformation;
+	}
+
+	public void setMoreInformation(String moreInformation) {
+		this.moreInformation = moreInformation;
+	}
+
 	public NeuralResponse(){
 		
 	}
@@ -20,6 +29,7 @@ public class NeuralResponse {
 		this.collectionOrder = neuralnetwork.getCollectionOrder();
 		this.mappingModel = neuralnetwork.getMappingModel();
 		this.responseId = neuralnetwork.getResponseId();
+		this.moreInformation = neuralnetwork.getMoreInformation();
 	}
 	
 	public String getRequestId() {
