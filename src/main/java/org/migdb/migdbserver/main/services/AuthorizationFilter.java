@@ -15,24 +15,34 @@ import org.migdb.migdbserver.main.config.Documentation;
 import org.migdb.migdbserver.main.config.ErrorCodes;
 import org.migdb.migdbserver.main.resources.ErrorMessage;
 
+/**
+ * @author Gayan
+ * Basic Authentication validation class
+ *
+ */
 @Provider
 public class AuthorizationFilter implements ContainerRequestFilter {
-
+	//client application identification id
 	private String applicationId;
+	//client application security key
 	private String securityKey;
 
+	//getter of applicationid
 	public String getApplicationId() {
 		return applicationId;
 	}
-
+	
+	//setter of applicationid
 	public void setApplicationId(String applicationId) {
 		this.applicationId = applicationId;
 	}
-
+	
+	//getter of securitykey
 	public String getSecurityKey() {
 		return securityKey;
 	}
-
+	
+	//setter of securitykey
 	public void setSecurityKey(String securityKey) {
 		this.securityKey = securityKey;
 	}
@@ -45,12 +55,13 @@ public class AuthorizationFilter implements ContainerRequestFilter {
 		if (authHeader != null && authHeader.size() > 0) {
 
 			try {
+				//extract applicationid and security key from header parameter
 				String[] authParameters = AuthorizationFilter.decode(authHeader.get(0));
-				setApplicationId(authParameters[0]);
-				setSecurityKey(authParameters[1]);
+				this.setApplicationId(authParameters[0]);
+				this.setSecurityKey(authParameters[1]);
 
 			} catch (Exception ex) {
-
+				//if element not found this exception throws
 				String errorMessage = "NOT FOUND STANDARD APPLICATIONID OR SECURITYKEY";
 
 				ErrorMessage errormessage = new ErrorMessage(ErrorCodes.UNAUTHORIZED_NO_HEADER_PARAM, errorMessage,
@@ -71,7 +82,7 @@ public class AuthorizationFilter implements ContainerRequestFilter {
 				return;
 
 			} else {
-
+				//client did not provide valid credential.Error message return
 				String errorMessage = "@APPLICATIONID:" + applicationId + " @SECURITYKEY:" + securityKey + " invalid";
 
 				ErrorMessage errormessage = new ErrorMessage(ErrorCodes.UNAUTHORIZED_INVALID_HEADER_PARAM, errorMessage,
@@ -86,8 +97,8 @@ public class AuthorizationFilter implements ContainerRequestFilter {
 			}
 
 		} else {
-
-			String errorMessage = "NO APPLICATIONID AND SECURITY_KEY PRESENTED";
+			//client request do not provide any Authorization value
+			String errorMessage = "NO APPLICATIONID AND SECURITYKEY PRESENTED";
 
 			ErrorMessage errormessage = new ErrorMessage(ErrorCodes.UNAUTHORIZED_NO_HEADER_PARAM, errorMessage,
 					Documentation.NO_AUTH_PARAM_PRESENTED_DOC);
@@ -99,7 +110,11 @@ public class AuthorizationFilter implements ContainerRequestFilter {
 		}
 
 	}
-
+	
+	/*
+	 * method to decode encoded header parameter and extract applicationid and securitykey
+	 * parameter:encoded String value
+	 * */
 	public static String[] decode(String auth) {
 		// Replacing "Basic THE_BASE_64" to "THE_BASE_64" directly
 		auth = auth.replaceFirst("[B|b]asic ", "");
@@ -112,15 +127,20 @@ public class AuthorizationFilter implements ContainerRequestFilter {
 			return null;
 		}
 
-		// Now we can convert the byte[] into a splitted array :
+		// convert the byte[] into a splitted array :
 		// - the first one is login,
 		// - the second one password
 		return new String(decodedBytes).split(":", 2);
 	}
 
+	/*
+	 * method to encode server response signature value
+	 * parameters:serverid String , securitykey String
+	 * */
 	public static String HTTPBasicAuthFilter(final String username, final String password) {
+
 		String serverSignature = Base64.encodeAsString(username + ":" + password);
-		serverSignature = "Basic " + serverSignature;
+		serverSignature = AuthenticationParameters.AUTHORIZATION_HEADER_PREFIX+ " " +serverSignature;
 		return serverSignature;
 	}
 

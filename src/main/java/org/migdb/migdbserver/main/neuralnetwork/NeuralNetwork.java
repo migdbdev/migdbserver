@@ -2,6 +2,7 @@ package org.migdb.migdbserver.main.neuralnetwork;
 
 import org.migdb.migdbserver.main.resources.MappingRequestMessage;
 
+
 public class NeuralNetwork {
 	private String responseId = "res745867498";
 	private String mappingModel = "EMBEDDING";
@@ -19,6 +20,7 @@ public class NeuralNetwork {
 	}
 
 	public NeuralNetwork() {
+		
 
 	}
 
