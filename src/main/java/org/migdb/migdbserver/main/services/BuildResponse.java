@@ -1,17 +1,16 @@
 package org.migdb.migdbserver.main.services;
+
 import org.migdb.migdbserver.main.resources.MappingResponse;
 import org.migdb.migdbserver.main.resources.NeuralResponse;;
 
-
 public class BuildResponse {
-	
+
 	private String responseId;
 	private String clientId;
 	private String requestId;
 	private String mappingModel;
 	private String moreInformation;
-	
-	
+
 	public String getMoreInformation() {
 		return moreInformation;
 	}
@@ -52,21 +51,22 @@ public class BuildResponse {
 		this.mappingModel = mappingModel;
 	}
 
-	public BuildResponse(NeuralResponse neuralresponse){
-		
+	public BuildResponse(NeuralResponse neuralresponse) {
+
 		this.requestId = neuralresponse.getResponseId();
 		this.clientId = neuralresponse.getClientId();
 		this.requestId = neuralresponse.getRequestId();
 		this.mappingModel = neuralresponse.getMappingModel();
 		this.moreInformation = neuralresponse.getMoreInformation();
-		
+
 	}
-	
-	public MappingResponse getMappingResponse(){
-		
-		MappingResponse mappingresponse = new MappingResponse(this.responseId,this.clientId,this.requestId,this.mappingModel,this.moreInformation);
+
+	public MappingResponse getMappingResponse() {
+
+		MappingResponse mappingresponse = new MappingResponse(this.responseId, this.clientId, this.requestId,
+				this.mappingModel, this.moreInformation);
 		return mappingresponse;
-		
+
 	}
 
 }
