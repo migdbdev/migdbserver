@@ -13,7 +13,7 @@ public class MappingRequestMessage {
 	private int calenderCount;
 
 	public MappingRequestMessage(String clientId, String requestId, String authorizationKey, String relationshipType,
-			int columnCount, int numericCount, int stringCount, int calendercount) {
+			int columnCount, int numericCount, int stringCount, int calenderCount) {
 		this.clientId = clientId;
 		this.requestId = requestId;
 		this.authorizationKey = authorizationKey;
@@ -21,7 +21,7 @@ public class MappingRequestMessage {
 		this.columnCount = columnCount;
 		this.numericCount = numericCount;
 		this.stringCount = stringCount;
-		this.calenderCount = calendercount;
+		this.calenderCount = calenderCount;
 
 	}
 
@@ -91,6 +91,13 @@ public class MappingRequestMessage {
 
 	public void setCalenderCount(int calenderCount) {
 		this.calenderCount = calenderCount;
+	}
+
+	public double[] convertParamToArray() {
+		double[] paramArray = { Double.valueOf(this.getColumnCount()), Double.valueOf(this.getNumericCount()),
+				Double.valueOf(this.getStringCount()), Double.valueOf(this.getCalenderCount()) };
+		return paramArray;
+
 	}
 
 }

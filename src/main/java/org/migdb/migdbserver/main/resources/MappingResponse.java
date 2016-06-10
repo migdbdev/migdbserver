@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.migdb.migdbserver.main.config.AuthenticationParameters;
+
 @XmlRootElement
 public class MappingResponse {
 
@@ -28,6 +30,14 @@ public class MappingResponse {
 
 	public MappingResponse() {
 
+	}
+
+	public MappingResponse(String message) {
+		this.createdTime = new Date();
+		this.moreInformation = message;
+		this.responseId = "";
+		this.clientId = AuthenticationParameters.APPLICATION_ID;
+		this.requestId = "";
 	}
 
 	public String getResponseId() {

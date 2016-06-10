@@ -31,12 +31,18 @@ public class MappingRequest {
 	/**
 	 * @return server status;
 	 */
+
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response returnServerStatus(@Context UriInfo uriinfo) {
-		System.out.println("GET Executed");
-		String serverstatus = "SERVER IS ONLINE.SEND VALID REQUEST IN POST";
-		return Response.status(Status.OK).header("Entrypoint", uriinfo.getAbsolutePath()).entity(serverstatus).build();
+	@Produces(value = { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public Response serverStatus(@Context UriInfo uriinfo) {
+		String serverStatus = "ONLINE";
+		MappingResponse mappingresponse = new MappingResponse(serverStatus);
+
+		return Response.status(Status.OK).header("Entrypoint", uriinfo.getAbsolutePath())
+				.header("Base-URI", uriinfo.getBaseUri())
+				.header(AuthenticationParameters.AUTHORIZATION_HEADER_KEY, AuthorizationFilter.HTTPBasicAuthFilter(
+						AuthenticationParameters.SERVER_ID, AuthenticationParameters.SERVER_SECURITY_KEY))
+				.entity(mappingresponse).build();
 
 	}
 
