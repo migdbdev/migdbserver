@@ -27,6 +27,15 @@ public class BuildResponse {
 	private String requestId;
 	private String mappingModel;
 	private String moreInformation;
+	private String complexity;
+
+	public String getComplexity() {
+		return complexity;
+	}
+
+	public void setComplexity(String complexity) {
+		this.complexity = complexity;
+	}
 
 	public String getMoreInformation() {
 		return moreInformation;
@@ -75,13 +84,14 @@ public class BuildResponse {
 		this.requestId = neuralresponse.getRequestId();
 		this.mappingModel = neuralresponse.getMappingModel();
 		this.moreInformation = neuralresponse.getMoreInformation();
+		this.complexity = neuralresponse.getComplexity();
 
 	}
 
 	public MappingResponse getMappingResponse() {
 
 		MappingResponse mappingresponse = new MappingResponse(this.responseId, this.clientId, this.requestId,
-				this.mappingModel, this.moreInformation);
+				this.mappingModel, this.moreInformation, this.complexity);
 		return mappingresponse;
 
 	}

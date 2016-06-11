@@ -91,13 +91,4 @@ public class UpdateNetwork {
 
 	}
 
-	public static void main(String arg[]) {
-		NetworkConfiguration config1 = new NetworkConfiguration();
-		UpdateNetwork update = new UpdateNetwork();
-
-		update.appendLineToDataSet(config1.getTableInfoFilePath(), null);
-
-		update.readAndPrintDataSet(config1.getTableInfoFilePath());
-	}
-
 }

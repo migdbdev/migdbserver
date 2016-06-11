@@ -16,17 +16,6 @@
  * under the License.
  */
 
-       metric 2: NUMERIC_COUNT (NUMBER){ DOUBLE,BIGINT,FLOAT,MONEY }
-
-       metric 3: STRING_COUNT (NUMBER) { BLOB,TEXT,VARCHAR_MIN_64,CHAR_MIN_64,NCHAR_MIN_12,NVARCHAR_MIN_32}
-
-       metric 4: CALENDER_COUNT (NUMBER) { DATETIME, TIMESTAMP}
-       
-       Standard Output
-       ---------------
-       EMBEDDING =  0.0
-       REFERENCE =  1.0
- * */
 package org.migdb.migdbserver.main.neuralnetwork;
 
 import java.io.FileNotFoundException;

@@ -21,20 +21,17 @@ public class MappingRequestMessage {
 	// designed temporary upto 121 and 12M relationships
 	private String clientId;
 	private String requestId;
-	private String authorizationKey;
-	private String relationshipType;
-
+	
 	private int columnCount;
 	private int numericCount;
 	private int stringCount;
 	private int calenderCount;
 
-	public MappingRequestMessage(String clientId, String requestId, String authorizationKey, String relationshipType,
+	public MappingRequestMessage(String clientId, String requestId,
 			int columnCount, int numericCount, int stringCount, int calenderCount) {
 		this.clientId = clientId;
 		this.requestId = requestId;
-		this.authorizationKey = authorizationKey;
-		this.relationshipType = relationshipType;
+	
 		this.columnCount = columnCount;
 		this.numericCount = numericCount;
 		this.stringCount = stringCount;
@@ -62,21 +59,7 @@ public class MappingRequestMessage {
 		this.requestId = requestId;
 	}
 
-	public String getAuthorizationKey() {
-		return authorizationKey;
-	}
 
-	public void setAuthorizationKey(String authorizationKey) {
-		this.authorizationKey = authorizationKey;
-	}
-
-	public String getRelationshipType() {
-		return relationshipType;
-	}
-
-	public void setRelationshipType(String relationshipType) {
-		this.relationshipType = relationshipType;
-	}
 
 	public int getColumnCount() {
 		return columnCount;

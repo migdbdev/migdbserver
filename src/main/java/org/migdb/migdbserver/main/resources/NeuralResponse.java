@@ -23,7 +23,7 @@ public class NeuralResponse {
 
 	private String responseId;
 	private String mappingModel;
-	private String collectionOrder;
+	private String complexity;
 	private String clientId;
 	private String requestId;
 	private String moreInformation;
@@ -43,7 +43,7 @@ public class NeuralResponse {
 	public NeuralResponse(NeuralNetwork neuralnetwork) {
 		this.requestId = neuralnetwork.getRequestId();
 		this.clientId = neuralnetwork.getClientId();
-		this.collectionOrder = neuralnetwork.getCollectionOrder();
+		this.complexity = neuralnetwork.getComplexity();
 		this.mappingModel = neuralnetwork.getMappingModel();
 		this.responseId = neuralnetwork.getResponseId();
 		this.moreInformation = neuralnetwork.getMoreInformation();
@@ -81,12 +81,12 @@ public class NeuralResponse {
 		this.mappingModel = mappingModel;
 	}
 
-	public String getCollectionOrder() {
-		return collectionOrder;
+	public String getComplexity() {
+		return complexity;
 	}
 
 	public void setCollectionOrder(String collectionOrder) {
-		this.collectionOrder = collectionOrder;
+		this.complexity = collectionOrder;
 	}
 
 }

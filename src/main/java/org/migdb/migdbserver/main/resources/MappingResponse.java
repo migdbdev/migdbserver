@@ -32,17 +32,18 @@ public class MappingResponse {
 	private Date createdTime;
 	private Date expiryTime;
 	private String mappingModel;
-	private String collectionOrder;
+	private String complexity;
 	private String moreInformation;
 
 	public MappingResponse(String responseId, String clientId, String requestId, String mappingModel,
-			String moreInformation) {
+			String moreInformation, String complexity) {
 		this.responseId = responseId;
 		this.clientId = clientId;
 		this.requestId = requestId;
 		this.createdTime = new Date();
 		this.mappingModel = mappingModel;
 		this.moreInformation = moreInformation;
+		this.complexity = complexity;
 	}
 
 	public MappingResponse() {
@@ -105,12 +106,12 @@ public class MappingResponse {
 		this.mappingModel = mappingModel;
 	}
 
-	public String getCollectionOrder() {
-		return collectionOrder;
+	public String getComplexity() {
+		return complexity;
 	}
 
-	public void setCollectionOrder(String collectionOrder) {
-		this.collectionOrder = collectionOrder;
+	public void setComplexity(String complexity) {
+		this.complexity = complexity;
 	}
 
 	public String getMessageFromServer() {

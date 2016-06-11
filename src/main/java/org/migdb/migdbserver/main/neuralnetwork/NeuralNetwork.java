@@ -21,8 +21,8 @@ import org.migdb.migdbserver.main.resources.MappingRequestMessage;
 
 public class NeuralNetwork {
 	private String responseId = "res745867498";
-	private String mappingModel = "";
-	private String collectionOrder = "L2R";
+	private String mappingModel;
+	private String complexity;
 	private String clientId;
 	private String requestId;
 	private String moreInformation;
@@ -66,9 +66,8 @@ public class NeuralNetwork {
 
 		this.moreInformation = "COLUMN_COUNT = " + mappingrequestmessage.getColumnCount() + " NUMERIC_COUNT = "
 				+ mappingrequestmessage.getNumericCount() + " STRING_COUNT = " + mappingrequestmessage.getStringCount()
-				+ " CALENDER_COUNT = " + mappingrequestmessage.getCalenderCount() + " COMPLEXITY = "
-				+ String.valueOf(complexityValue);
-
+				+ " CALENDER_COUNT = " + mappingrequestmessage.getCalenderCount();
+		this.complexity = String.valueOf(this.complexityValue);
 	}
 
 	public NeuralNetwork getNeuralNetwork() {
@@ -92,12 +91,12 @@ public class NeuralNetwork {
 		this.mappingModel = mappingModel;
 	}
 
-	public String getCollectionOrder() {
-		return collectionOrder;
+	public String getComplexity() {
+		return complexity;
 	}
 
 	public void setCollectionOrder(String collectionOrder) {
-		this.collectionOrder = collectionOrder;
+		this.complexity = collectionOrder;
 	}
 
 	public String getClientId() {
