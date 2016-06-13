@@ -21,6 +21,11 @@ import java.text.DecimalFormat;
 
 import org.migdb.migdbserver.main.resources.MappingRequestMessage;
 
+/**
+ * @author Gayan
+ * @description class to evaluate table weight as countable value
+ *
+ */
 public class TableComplexityEvaluator {
 
 	NetworkConfiguration config = new NetworkConfiguration();
@@ -28,6 +33,10 @@ public class TableComplexityEvaluator {
 	public int sumOfTableColumnWeights = 0;
 	public int MaxSumOfWeight = config.getMAX_TABLE_WEIGHT();
 
+	/**
+	 * @param message
+	 * @return Double sum of table weight
+	 */
 	public double getsumOfTableWeights(MappingRequestMessage message) {
 
 		sumOfTableColumnWeights += message.getColumnCount() * config.getCOLUMN_WEIGHT();

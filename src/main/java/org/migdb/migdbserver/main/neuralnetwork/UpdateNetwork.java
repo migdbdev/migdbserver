@@ -25,11 +25,22 @@ import java.io.IOException;
 import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.CSVWriter;
 
+/**
+ * @author Gayan
+ * @description class to train to change training data set
+ *
+ */
 public class UpdateNetwork {
 
 	NetworkConfiguration config = new NetworkConfiguration();
 
-	// method to initiate fresh neural network and start learning network
+	
+	/**
+	 * @param core
+	 * @param config
+	 * @return Boolean state of neural network
+	 * @description method to initiate fresh neural network and start learning network
+	 */
 	public boolean updateNetworkStatus(NeuralNetworkCore core, NetworkConfiguration config) {
 
 		core = new NeuralNetworkCore();
@@ -44,7 +55,11 @@ public class UpdateNetwork {
 
 	}
 
-	// method to read current data set and print data set on console
+	
+	/**
+	 * @param filename
+	 * @description method to read current data set and print data set on console
+	 */
 	public void readAndPrintDataSet(String filename) {
 
 		CSVReader reader;
@@ -73,7 +88,13 @@ public class UpdateNetwork {
 
 	}
 
-	// method to update data set csv file with new value row
+	
+	/**
+	 * @param filename
+	 * @param rowValues
+	 * @return Boolean
+	 * @description  method to update data set csv file with new value row
+	 */
 	public boolean appendLineToDataSet(String filename, String rowValues) {
 
 		try {

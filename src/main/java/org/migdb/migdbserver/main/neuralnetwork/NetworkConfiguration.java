@@ -17,20 +17,20 @@
  */
 package org.migdb.migdbserver.main.neuralnetwork;
 
+/**
+ * @author Gayan
+ * @description Class for neural network configuration parameters
+ *
+ */
 public class NetworkConfiguration {
 
-	// File name where is saved main data set
+	
 	private String tableInfoFilePath;
-	// File name where we will save training data set
+	
 	private String trainingFileName;
-	// File name where we will save test data set
+	
 	private String testFileName;
-	// File name where we will save balanced data set (3000 of
-	// every type of tree created from training file)
-	private String balancedFileName;
-	// File name where we will save normalized balanced data set
-	private String normalizedBalancedFileName;
-	// File name where we will save trained neural network
+	
 	private String trainedNetworkFile;
 
 	private String emptyNetworkFile;
@@ -40,10 +40,6 @@ public class NetworkConfiguration {
 	private final double REFERENCING_VALUE = 1.0;
 
 	private final double MIDDLE_VALUE = 0.5;
-
-	public double getMIDDLE_VALUE() {
-		return MIDDLE_VALUE;
-	}
 
 	private final String EMBEDDING_NAME = "EMBEDDING";
 
@@ -62,55 +58,99 @@ public class NetworkConfiguration {
 	private final int STRING_WEIGHT = 15;
 
 	private final int CALENDER_WEIGHT = 10;
+	
+	private int firstHiddenLayerCount;
+	
+	private int secondHiddenLayerCount;
+	
+	private int outputCount;
+	
+	private String delimeter;
+	
+	/**
+	 * @return
+	 */
+	public double getMIDDLE_VALUE() {
+		return MIDDLE_VALUE;
+	}
 
+	/**
+	 * @return
+	 */
 	public int getCOLUMN_WEIGHT() {
 		return COLUMN_WEIGHT;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getNUMERIC_WEIGHT() {
 		return NUMERIC_WEIGHT;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getSTRING_WEIGHT() {
 		return STRING_WEIGHT;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getCALENDER_WEIGHT() {
 		return CALENDER_WEIGHT;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getMAX_TABLE_WEIGHT() {
 		return MAX_TABLE_WEIGHT;
 	}
 
+	/**
+	 * @param mAX_TABLE_WEIGHT
+	 */
 	public void setMAX_TABLE_WEIGHT(int mAX_TABLE_WEIGHT) {
 		MAX_TABLE_WEIGHT = mAX_TABLE_WEIGHT;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getUNABLE_TO_PREDICT_NAME() {
 		return UNABLE_TO_PREDICT_NAME;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getEMBEDDING_NAME() {
 		return EMBEDDING_NAME;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getREFERENCING_NAME() {
 		return REFERENCING_NAME;
 	}
 
-	private int firstHiddenLayerCount;
-	private int secondHiddenLayerCount;
-
+	
+	/**
+	 * @return
+	 */
 	public double getEMBEDDING_VALUE() {
 		return EMBEDDING_VALUE;
 	}
 
+	/**
+	 * @return
+	 */
 	public double getREFERENCING_VALUE() {
 		return REFERENCING_VALUE;
 	}
-
-	private int outputCount;
 
 	public String getEmptyNetworkFile() {
 		return emptyNetworkFile;
@@ -120,107 +160,146 @@ public class NetworkConfiguration {
 		this.emptyNetworkFile = emptyNetworkFile;
 	}
 
-	private String delimeter;
-
+	/**
+	 * @return
+	 */
 	public String getDelimeter() {
 		return delimeter;
 	}
 
+	/**
+	 * @param delimeter
+	 */
 	public void setDelimeter(String delimeter) {
 		this.delimeter = delimeter;
 	}
 
+	/**
+	 * @return
+	 */
+	public String getTableInfoFilePath() {
+		return tableInfoFilePath;
+	}
+
+	/**
+	 * @param dataFilePath
+	 */
+	public void setDataFilePath(String dataFilePath) {
+		this.tableInfoFilePath = dataFilePath;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getTrainingFileName() {
+		return trainingFileName;
+	}
+
+	/**
+	 * @param trainingFileName
+	 */
+	public void setTrainingFileName(String trainingFileName) {
+		this.trainingFileName = trainingFileName;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getTestFileName() {
+		return testFileName;
+	}
+
+	/**
+	 * @param testFileName
+	 */
+	public void setTestFileName(String testFileName) {
+		this.testFileName = testFileName;
+	}
+
+	
+	/**
+	 * @return
+	 */
+	public String getTrainedNetworkFileName() {
+		return trainedNetworkFile;
+	}
+
+	/**
+	 * @param trainedNetworkFileName
+	 */
+	public void setTrainedNetworkFileName(String trainedNetworkFileName) {
+		this.trainedNetworkFile = trainedNetworkFileName;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getInputCount() {
+		return inputCount;
+	}
+
+	/**
+	 * @param inputCount
+	 */
+	public void setInputCount(int inputCount) {
+		this.inputCount = inputCount;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getFirstHiddenLayerCount() {
+		return firstHiddenLayerCount;
+	}
+
+	/**
+	 * @param firstHiddenLayerCount
+	 */
+	public void setFirstHiddenLayerCount(int firstHiddenLayerCount) {
+		this.firstHiddenLayerCount = firstHiddenLayerCount;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getSecondHiddenLayerCount() {
+		return secondHiddenLayerCount;
+	}
+
+	/**
+	 * @param secondHiddenLayerCount
+	 */
+	public void setSecondHiddenLayerCount(int secondHiddenLayerCount) {
+		this.secondHiddenLayerCount = secondHiddenLayerCount;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getOutputCount() {
+		return outputCount;
+	}
+
+	/**
+	 * @param outputCount
+	 */
+	public void setOutputCount(int outputCount) {
+		this.outputCount = outputCount;
+	}
+	
+	/**
+	 * Constructor
+	 */
 	public NetworkConfiguration() {
 
 		tableInfoFilePath = "/\\GAYANPC/webapps/networks/learningset/tableinfo.txt";
 		trainedNetworkFile = "/\\GAYANPC/webapps/networks/datainspector/trainedNetwork.txt";
 		emptyNetworkFile = "/\\GAYANPC/webapps/networks/datainspector/emptyNetwork.txt";
 		delimeter = ",";
-
 		inputCount = 4;
 		outputCount = 1;
 		firstHiddenLayerCount = 16;
 		secondHiddenLayerCount = 10;
 
-	}
-
-	public String getTableInfoFilePath() {
-		return tableInfoFilePath;
-	}
-
-	public void setDataFilePath(String dataFilePath) {
-		this.tableInfoFilePath = dataFilePath;
-	}
-
-	public String getTrainingFileName() {
-		return trainingFileName;
-	}
-
-	public void setTrainingFileName(String trainingFileName) {
-		this.trainingFileName = trainingFileName;
-	}
-
-	public String getTestFileName() {
-		return testFileName;
-	}
-
-	public void setTestFileName(String testFileName) {
-		this.testFileName = testFileName;
-	}
-
-	public String getBalancedFileName() {
-		return balancedFileName;
-	}
-
-	public void setBalancedFileName(String balancedFileName) {
-		this.balancedFileName = balancedFileName;
-	}
-
-	public String getNormalizedBalancedFileName() {
-		return normalizedBalancedFileName;
-	}
-
-	public void setNormalizedBalancedFileName(String normalizedBalanceFileName) {
-		this.normalizedBalancedFileName = normalizedBalanceFileName;
-	}
-
-	public String getTrainedNetworkFileName() {
-		return trainedNetworkFile;
-	}
-
-	public void setTrainedNetworkFileName(String trainedNetworkFileName) {
-		this.trainedNetworkFile = trainedNetworkFileName;
-	}
-
-	public int getInputCount() {
-		return inputCount;
-	}
-
-	public void setInputCount(int inputCount) {
-		this.inputCount = inputCount;
-	}
-
-	public int getFirstHiddenLayerCount() {
-		return firstHiddenLayerCount;
-	}
-
-	public void setFirstHiddenLayerCount(int firstHiddenLayerCount) {
-		this.firstHiddenLayerCount = firstHiddenLayerCount;
-	}
-
-	public int getSecondHiddenLayerCount() {
-		return secondHiddenLayerCount;
-	}
-
-	public void setSecondHiddenLayerCount(int secondHiddenLayerCount) {
-		this.secondHiddenLayerCount = secondHiddenLayerCount;
-	}
-
-	public int getOutputCount() {
-		return outputCount;
-	}
-
-	public void setOutputCount(int outputCount) {
-		this.outputCount = outputCount;
 	}
 }

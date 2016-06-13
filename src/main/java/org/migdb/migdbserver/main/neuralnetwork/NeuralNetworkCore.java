@@ -39,8 +39,17 @@ import org.neuroph.nnet.learning.MomentumBackpropagation;
 import org.neuroph.util.TrainingSetImport;
 import org.neuroph.util.TransferFunctionType;
 
+/**
+ * @author Gayan
+ * @description class for neural network core functionality implementation
+ *
+ */
 public class NeuralNetworkCore implements LearningEventListener {
 
+	/**
+	 * @param config
+	 * @description create new neural network file and save on disk
+	 */
 	public void createNetwork(NetworkConfiguration config) {
 
 		System.out.println("Creating neural network...");
@@ -63,6 +72,11 @@ public class NeuralNetworkCore implements LearningEventListener {
 
 	}
 
+	/**
+	 * @param config
+	 * @description train created neural network using existing data set
+	 * @throws  IOException , NumberFormatException , FileNotFoundException
+	 */
 	public void trainNetwork(NetworkConfiguration config) {
 
 		DataSet trainingSet = null;
@@ -90,6 +104,9 @@ public class NeuralNetworkCore implements LearningEventListener {
 		System.out.println("Trained network saved on disk!");
 	}
 
+	/* (non-Javadoc)
+	 * @see org.neuroph.core.events.LearningEventListener#handleLearningEvent(org.neuroph.core.events.LearningEvent)
+	 */
 	@Override
 	public void handleLearningEvent(LearningEvent event) {
 		BackPropagation bp = (BackPropagation) event.getSource();
@@ -103,11 +120,22 @@ public class NeuralNetworkCore implements LearningEventListener {
 		}
 	}
 
-	// Formating decimal number to have 3 decimal places
+	
+	/**
+	 * @param number
+	 * @return String return String value of max error value
+	 */
 	private String formatDecimalNumber(double number) {
 		return new BigDecimal(number).setScale(5, RoundingMode.HALF_UP).toString();
 	}
+	
 
+	/**
+	 * @param config
+	 * @param input
+	 * @return Double[] numeric value of neural network output
+	 * @throws NeurophException
+	 */
 	public double[] getMappingModel(NetworkConfiguration config, double[] input) {
 		try {
 			// create input parameters for evaluate
@@ -138,6 +166,12 @@ public class NeuralNetworkCore implements LearningEventListener {
 
 	}
 
+	/**
+	 * @param config
+	 * @param networkOutput
+	 * @return String  mapping model name
+	 * @description method to return mapping model name
+	 */
 	public String returnMappingModelName(NetworkConfiguration config, double networkOutput) {
 		// evaluate network output comparing constant values for mapping models
 		if (networkOutput < config.getMIDDLE_VALUE() || networkOutput == config.getMIDDLE_VALUE()) {
