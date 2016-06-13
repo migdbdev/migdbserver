@@ -20,6 +20,11 @@ package org.migdb.migdbserver.main.services;
 import org.migdb.migdbserver.main.resources.MappingResponse;
 import org.migdb.migdbserver.main.resources.NeuralResponse;;
 
+/**
+ * @author Gayan
+ * @description Class to build response message
+ *
+ */
 public class BuildResponse {
 
 	private String responseId;
@@ -29,54 +34,94 @@ public class BuildResponse {
 	private String moreInformation;
 	private String complexity;
 
+	/**
+	 * @return complexity
+	 */
 	public String getComplexity() {
 		return complexity;
 	}
 
+	/**
+	 * @param complexity
+	 */
 	public void setComplexity(String complexity) {
 		this.complexity = complexity;
 	}
 
+	/**
+	 * @return moreInformation
+	 */
 	public String getMoreInformation() {
 		return moreInformation;
 	}
 
+	/**
+	 * @param moreInformation
+	 */
 	public void setMoreInformation(String moreInformation) {
 		this.moreInformation = moreInformation;
 	}
 
+	/**
+	 * @return responseId
+	 */
 	public String getResponseId() {
 		return responseId;
 	}
 
+	/**
+	 * @param responseId
+	 */
 	public void setResponseId(String responseId) {
 		this.responseId = responseId;
 	}
 
+	/**
+	 * @return clientId
+	 */
 	public String getClientId() {
 		return clientId;
 	}
 
+	/**
+	 * @param clientId
+	 */
 	public void setClientId(String clientId) {
 		this.clientId = clientId;
 	}
 
+	/**
+	 * @return requestId
+	 */
 	public String getRequestId() {
 		return requestId;
 	}
 
+	/**
+	 * @param requestId
+	 */
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
 	}
 
+	/**
+	 * @return mappingModel
+	 */
 	public String getMappingModel() {
 		return mappingModel;
 	}
 
+	/**
+	 * @param mappingModel
+	 */
 	public void setMappingModel(String mappingModel) {
 		this.mappingModel = mappingModel;
 	}
 
+	/**
+	 * @param neuralresponse
+	 * @description constructor
+	 */
 	public BuildResponse(NeuralResponse neuralresponse) {
 
 		this.requestId = neuralresponse.getResponseId();
@@ -88,6 +133,10 @@ public class BuildResponse {
 
 	}
 
+	/**
+	 * @return MappingResponse
+	 * @description Method to return mapping response message
+	 */
 	public MappingResponse getMappingResponse() {
 
 		MappingResponse mappingresponse = new MappingResponse(this.responseId, this.clientId, this.requestId,

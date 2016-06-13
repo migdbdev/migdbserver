@@ -21,11 +21,20 @@ import org.migdb.migdbserver.main.config.ErrorCodes;
 import org.migdb.migdbserver.main.exceptions.RequestMessageParameterException;
 import org.migdb.migdbserver.main.resources.MappingRequestMessage;
 
+/**
+ * @author Gayan
+ * @description class to validate mapping request message
+ *
+ */
 public class MappingRequestValidator {
 
 	private MappingRequestMessage mappingrequest;
 	private int sumOfColumn = -1;
 
+	/**
+	 * @param mappingrequest
+	 * @description constructor
+	 */
 	public MappingRequestValidator(MappingRequestMessage mappingrequest) {
 
 		this.mappingrequest = mappingrequest;
@@ -34,12 +43,19 @@ public class MappingRequestValidator {
 
 	}
 
+	/**
+	 * @description validate request authentication and parameters
+	 */
 	public void validateMappingRequest() {
 		validateMessageParameters();
 		validateMessageAuthentication();
 
 	}
 
+	/**
+	 * @return Boolean messageParameterValidStatus
+	 * @throws  RequestMessageParameterException
+	 */
 	public boolean validateMessageParameters() {
 		if (mappingrequest.getColumnCount() < 0) {
 			String message = "@REQUESTID:" + mappingrequest.getRequestId() + "-->@ERRORINFOID:"
@@ -70,8 +86,11 @@ public class MappingRequestValidator {
 		return false;
 	}
 
+	/**
+	 * @return
+	 */
 	public boolean validateMessageAuthentication() {
-
+		//already check basic authentication by jersey framework
 		return false;
 	}
 

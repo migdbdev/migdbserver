@@ -36,12 +36,7 @@ import org.migdb.migdbserver.main.services.BuildResponse;
 import org.migdb.migdbserver.main.services.MappingRequestValidator;
 import org.migdb.migdbserver.main.services.NeuralNetworkAccess;
 
-/**
- * @author Gayan
- * @see Class to handle mapping requests from client application and expose
- *      functionality as a REST api.
- *
- */
+
 @Path("/mappingrequest")
 public class MappingRequest {
 

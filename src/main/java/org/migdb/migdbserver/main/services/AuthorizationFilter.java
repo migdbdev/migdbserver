@@ -33,7 +33,8 @@ import org.migdb.migdbserver.main.config.ErrorCodes;
 import org.migdb.migdbserver.main.resources.ErrorMessage;
 
 /**
- * @author Gayan Basic Authentication validation class
+ * @author Gayan 
+ * @description Basic Authentication validation class
  *
  */
 @Provider
@@ -43,26 +44,42 @@ public class AuthorizationFilter implements ContainerRequestFilter {
 	// client application security key
 	private String securityKey;
 
-	// getter of applicationid
+
+	/**
+	 * @return applicationId
+	 */
 	public String getApplicationId() {
 		return applicationId;
 	}
 
-	// setter of applicationid
+	
+	/**
+	 * @param applicationId
+	 */
 	public void setApplicationId(String applicationId) {
 		this.applicationId = applicationId;
 	}
 
-	// getter of securitykey
+	
+	/**
+	 * @return securityKey
+	 */
 	public String getSecurityKey() {
 		return securityKey;
 	}
 
-	// setter of securitykey
+	
+	/**
+	 * @param securityKey
+	 */
 	public void setSecurityKey(String securityKey) {
 		this.securityKey = securityKey;
 	}
 
+	
+	/* (non-Javadoc)
+	 * @see javax.ws.rs.container.ContainerRequestFilter#filter(javax.ws.rs.container.ContainerRequestContext)
+	 */
 	@Override
 	public void filter(ContainerRequestContext requestContext) throws IOException {
 		// extract header values using key
@@ -127,9 +144,10 @@ public class AuthorizationFilter implements ContainerRequestFilter {
 
 	}
 
-	/*
-	 * method to decode encoded header parameter and extract applicationid and
-	 * securitykey parameter:encoded String value
+	
+	/**
+	 * @param auth
+	 * @return String[] userName and password
 	 */
 	public static String[] decode(String auth) {
 		// Replacing "Basic THE_BASE_64" to "THE_BASE_64" directly
@@ -149,9 +167,12 @@ public class AuthorizationFilter implements ContainerRequestFilter {
 		return new String(decodedBytes).split(":", 2);
 	}
 
-	/*
-	 * method to encode server response signature value parameters:serverid
-	 * String , securitykey String
+	/**
+	 * @param username
+	 * @param password
+	 * @return
+	 * @description Basic Authentication validation class
+	 *
 	 */
 	public static String HTTPBasicAuthFilter(final String username, final String password) {
 

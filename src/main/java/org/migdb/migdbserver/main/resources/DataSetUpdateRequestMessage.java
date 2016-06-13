@@ -19,6 +19,10 @@ package org.migdb.migdbserver.main.resources;
 
 import org.migdb.migdbserver.main.neuralnetwork.NetworkConfiguration;
 
+/**
+ * @author Gayan
+ * @description Template class to hold neural network update request
+ */
 public class DataSetUpdateRequestMessage {
 
 	private String requestId;
@@ -29,30 +33,47 @@ public class DataSetUpdateRequestMessage {
 	private String mappingModel;
 	private double modelvalue;
 
+	/**
+	 * @return modelvalue
+	 */
 	public double getModelvalue() {
 		return modelvalue;
 	}
 
+	/**
+	 * @param modelvalue
+	 */
 	public void setModelvalue(double modelvalue) {
 		this.modelvalue = modelvalue;
 	}
 
+	/**
+	 * Default constructor
+	 */
 	public DataSetUpdateRequestMessage() {
 
 	}
 
+	/**
+	 * @return Boolean validateState
+	 * @description Method to validate parameters are numeric and is mapping model presented 
+	 */
 	public boolean validateDataSetUpdateRequestMessage() {
 		int errorCount = 0;
 
 		NetworkConfiguration config = new NetworkConfiguration();
 		if (this.getColumnCount() <= 0)
 			errorCount++;
+		
 		if (this.getNumericCount() < 0)
 			errorCount++;
+		
 		if (this.getStringCount() < 0)
 			errorCount++;
+		
 		if (this.getCalenderCount() < 0)
 			errorCount++;
+		
 		if (!this.getMappingModel().equalsIgnoreCase(config.getEMBEDDING_NAME())
 				&& !this.getMappingModel().equalsIgnoreCase(config.getREFERENCING_NAME()))
 			errorCount++;
@@ -66,7 +87,12 @@ public class DataSetUpdateRequestMessage {
 
 		return true;
 	}
+	
 
+	/**
+	 * @return String dataSetRow
+	 * @description Method to create appending data set row
+	 */
 	public String createRowValueText() {
 
 		String text = String.valueOf((double) this.getColumnCount()) + ","
@@ -77,6 +103,10 @@ public class DataSetUpdateRequestMessage {
 		return text;
 	}
 
+	/**
+	 * @param config
+	 * @description get numeric value of each model and set to the attribute
+	 */
 	public void setModelValueToParameter(NetworkConfiguration config) {
 
 		if (this.getMappingModel().equalsIgnoreCase(config.getREFERENCING_NAME()))
@@ -87,50 +117,86 @@ public class DataSetUpdateRequestMessage {
 
 	}
 
+	/**
+	 * @return modelvalue
+	 */
 	public String getRequestId() {
 		return requestId;
 	}
 
+	/**
+	 * @param requestId
+	 */
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
 	}
 
+	/**
+	 * @return columnCount
+	 */
 	public int getColumnCount() {
 		return columnCount;
 	}
 
+	/**
+	 * @param columnCount
+	 */
 	public void setColumnCount(int columnCount) {
 		this.columnCount = columnCount;
 	}
 
+	/**
+	 * @return numericCount
+	 */
 	public int getNumericCount() {
 		return numericCount;
 	}
 
+	/**
+	 * @param numericCount
+	 */
 	public void setNumericCount(int numericCount) {
 		this.numericCount = numericCount;
 	}
 
+	/**
+	 * @return stringCount
+	 */
 	public int getStringCount() {
 		return stringCount;
 	}
 
+	/**
+	 * @param stringCount
+	 */
 	public void setStringCount(int stringCount) {
 		this.stringCount = stringCount;
 	}
 
+	/**
+	 * @return calenderCount
+	 */
 	public int getCalenderCount() {
 		return calenderCount;
 	}
 
+	/**
+	 * @param calenderCount
+	 */
 	public void setCalenderCount(int calenderCount) {
 		this.calenderCount = calenderCount;
 	}
 
+	/**
+	 * @return mappingModel
+	 */
 	public String getMappingModel() {
 		return mappingModel;
 	}
 
+	/**
+	 * @param mappingModel
+	 */
 	public void setMappingModel(String mappingModel) {
 		this.mappingModel = mappingModel;
 	}

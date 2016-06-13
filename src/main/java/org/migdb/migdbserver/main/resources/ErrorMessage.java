@@ -26,10 +26,19 @@ public class ErrorMessage {
 	private String errorMessage;
 	private String documentation;
 
+	/**
+	 * Default constructor
+	 */
 	public ErrorMessage() {
 
 	}
 
+	/**
+	 * @param errorNo
+	 * @param errorMessage
+	 * @param documentation
+	 * Constructor
+	 */
 	public ErrorMessage(String errorNo, String errorMessage, String documentation) {
 
 		this.errorNo = errorNo;
@@ -37,26 +46,44 @@ public class ErrorMessage {
 		this.documentation = documentation;
 	}
 
+	/**
+	 * @return errorNo
+	 */
 	public String getErrorNo() {
 		return errorNo;
 	}
 
+	/**
+	 * @param errorNo
+	 */
 	public void setErrorNo(String errorNo) {
 		this.errorNo = errorNo;
 	}
 
+	/**
+	 * @return  errorMessage
+	 */
 	public String getErrorMessage() {
 		return errorMessage;
 	}
 
+	/**
+	 * @param errorMessage
+	 */
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
 	}
 
+	/**
+	 * @return documentation
+	 */
 	public String getDocumentation() {
 		return documentation;
 	}
 
+	/**
+	 * @param documentation
+	 */
 	public void setDocumentation(String documentation) {
 		this.documentation = documentation;
 	}

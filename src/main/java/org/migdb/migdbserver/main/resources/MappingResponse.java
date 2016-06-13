@@ -23,6 +23,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.migdb.migdbserver.main.config.AuthenticationParameters;
 
+/**
+ * @author Gayan
+ *@description Template Class of mapping response sending to client
+ */
 @XmlRootElement
 public class MappingResponse {
 
@@ -35,6 +39,16 @@ public class MappingResponse {
 	private String complexity;
 	private String moreInformation;
 
+	
+	/**
+	 * @param responseId
+	 * @param clientId
+	 * @param requestId
+	 * @param mappingModel
+	 * @param moreInformation
+	 * @param complexity
+	 * @description Constructor
+	 */
 	public MappingResponse(String responseId, String clientId, String requestId, String mappingModel,
 			String moreInformation, String complexity) {
 		this.responseId = responseId;
@@ -46,10 +60,17 @@ public class MappingResponse {
 		this.complexity = complexity;
 	}
 
+	/**
+	 * Default Constructor
+	 */
 	public MappingResponse() {
 
 	}
 
+	/**
+	 * @param message
+	 * @description Constructor
+	 */
 	public MappingResponse(String message) {
 		this.createdTime = new Date();
 		this.moreInformation = message;
@@ -58,66 +79,114 @@ public class MappingResponse {
 		this.requestId = "";
 	}
 
-	public String getResponseId() {
+	/**
+	 * @return responseId
+	 */
+	public String getResponeId() {
 		return responseId;
 	}
 
+	/**
+	 * @param responseId
+	 */
 	public void setResponseId(String responseId) {
 		this.responseId = responseId;
 	}
 
+	/**
+	 * @return clientId
+	 */
 	public String getClientId() {
 		return clientId;
 	}
 
+	/**
+	 * @param clientId
+	 */
 	public void setClientId(String clientId) {
 		this.clientId = clientId;
 	}
 
+	/**
+	 * @return requestId
+	 */
 	public String getRequestId() {
 		return requestId;
 	}
 
+	/**
+	 * @param requestId
+	 */
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
 	}
 
+	/**
+	 * @return createdTime
+	 */
 	public Date getCreatedTime() {
 		return createdTime;
 	}
 
+	/**
+	 * @param createdTime
+	 */
 	public void setCreatedTime(Date createdTime) {
 		this.createdTime = createdTime;
 	}
 
+	/**
+	 * @return expiryTime
+	 */
 	public Date getExpiryTime() {
 		return expiryTime;
 	}
 
+	/**
+	 * @param expiryTime
+	 */
 	public void setExpiryTime(Date expiryTime) {
 		this.expiryTime = expiryTime;
 	}
 
+	/**
+	 * @return mappingModel
+	 */
 	public String getMappingModel() {
 		return mappingModel;
 	}
 
+	/**
+	 * @param mappingModel
+	 */
 	public void setMappingModel(String mappingModel) {
 		this.mappingModel = mappingModel;
 	}
 
+	/**
+	 * @return complexity
+	 */
 	public String getComplexity() {
 		return complexity;
 	}
 
+	/**
+	 * @param complexity
+	 */
 	public void setComplexity(String complexity) {
 		this.complexity = complexity;
 	}
 
+	/**
+	 * @return moreInformation
+	 */
 	public String getMessageFromServer() {
 		return moreInformation;
 	}
 
+	/**
+	 * @param messageFromServer
+	 */
 	public void setMessageFromServer(String messageFromServer) {
 		this.moreInformation = messageFromServer;
 	}

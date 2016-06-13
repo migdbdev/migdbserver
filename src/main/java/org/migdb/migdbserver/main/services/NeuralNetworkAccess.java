@@ -21,8 +21,17 @@ import org.migdb.migdbserver.main.neuralnetwork.NeuralNetwork;
 import org.migdb.migdbserver.main.resources.MappingRequestMessage;
 import org.migdb.migdbserver.main.resources.NeuralResponse;
 
+/**
+ * @author Gayan
+ * @description class to establish connection with neural network
+ */
+
 public class NeuralNetworkAccess {
 
+	/**
+	 * @param mappingrequest
+	 * @return NeuralResponse neural response message object
+	 */
 	public NeuralResponse getNeuralResponse(MappingRequestMessage mappingrequest) {
 		// access neural network process and extract response
 		NeuralNetwork neuralnetwork = new NeuralNetwork(mappingrequest);
