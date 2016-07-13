@@ -18,6 +18,7 @@
 package org.migdb.migdbserver.main.resources;
 
 import java.util.Date;
+import java.util.UUID;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -30,7 +31,7 @@ import org.migdb.migdbserver.main.config.AuthenticationParameters;
 @XmlRootElement
 public class MappingResponse {
 
-	private String responseId;
+	
 	private String clientId;
 	private String requestId;
 	private Date createdTime;
@@ -38,8 +39,17 @@ public class MappingResponse {
 	private String mappingModel;
 	private String complexity;
 	private String moreInformation;
-
+	private String response;
 	
+
+	public String getResponse() {
+		return response;
+	}
+
+	public void setResponse(String response) {
+		this.response = response;
+	}
+
 	/**
 	 * @param responseId
 	 * @param clientId
@@ -49,15 +59,16 @@ public class MappingResponse {
 	 * @param complexity
 	 * @description Constructor
 	 */
-	public MappingResponse(String responseId, String clientId, String requestId, String mappingModel,
+	public MappingResponse(String clientId, String requestId, String mappingModel,
 			String moreInformation, String complexity) {
-		this.responseId = responseId;
+		
 		this.clientId = clientId;
 		this.requestId = requestId;
 		this.createdTime = new Date();
 		this.mappingModel = mappingModel;
 		this.moreInformation = moreInformation;
 		this.complexity = complexity;
+		this.response = getNextUUID();
 	}
 
 	/**
@@ -74,24 +85,12 @@ public class MappingResponse {
 	public MappingResponse(String message) {
 		this.createdTime = new Date();
 		this.moreInformation = message;
-		this.responseId = "";
+		this.response = getNextUUID();
 		this.clientId = AuthenticationParameters.APPLICATION_ID;
 		this.requestId = "";
 	}
 
-	/**
-	 * @return responseId
-	 */
-	public String getResponeId() {
-		return responseId;
-	}
-
-	/**
-	 * @param responseId
-	 */
-	public void setResponseId(String responseId) {
-		this.responseId = responseId;
-	}
+	
 
 	/**
 	 * @return clientId
@@ -190,5 +189,9 @@ public class MappingResponse {
 	public void setMessageFromServer(String messageFromServer) {
 		this.moreInformation = messageFromServer;
 	}
+	
+	public static String getNextUUID() {
+        return UUID.randomUUID().toString();
+    }
 
 }

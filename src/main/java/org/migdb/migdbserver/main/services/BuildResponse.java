@@ -124,7 +124,6 @@ public class BuildResponse {
 	 */
 	public BuildResponse(NeuralResponse neuralresponse) {
 
-		this.requestId = neuralresponse.getResponseId();
 		this.clientId = neuralresponse.getClientId();
 		this.requestId = neuralresponse.getRequestId();
 		this.mappingModel = neuralresponse.getMappingModel();
@@ -139,7 +138,7 @@ public class BuildResponse {
 	 */
 	public MappingResponse getMappingResponse() {
 
-		MappingResponse mappingresponse = new MappingResponse(this.responseId, this.clientId, this.requestId,
+		MappingResponse mappingresponse = new MappingResponse(this.clientId, this.requestId,
 				this.mappingModel, this.moreInformation, this.complexity);
 		return mappingresponse;
 

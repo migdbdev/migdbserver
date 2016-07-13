@@ -22,8 +22,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import com.csvreader.CsvWriter;
+
 import au.com.bytecode.opencsv.CSVReader;
-import au.com.bytecode.opencsv.CSVWriter;
+
 
 /**
  * @author Gayan
@@ -98,11 +100,10 @@ public class UpdateNetwork {
 	public boolean appendLineToDataSet(String filename, String rowValues) {
 
 		try {
-			CSVWriter writer = new CSVWriter(new FileWriter(filename, true), CSVWriter.DEFAULT_SEPARATOR,
-					CSVWriter.NO_QUOTE_CHARACTER);
+			CsvWriter csvOutput = new CsvWriter(new FileWriter(filename, true), ',');
 			String[] values = rowValues.split(",");
-			writer.writeNext(values);
-			writer.close();
+			csvOutput.writeRecord(values);
+			csvOutput.close();
 			return true;
 		} catch (IOException e) {
 

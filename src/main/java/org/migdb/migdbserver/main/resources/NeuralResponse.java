@@ -25,7 +25,7 @@ import org.migdb.migdbserver.main.neuralnetwork.NeuralNetwork;
  */
 public class NeuralResponse {
 
-	private String responseId;
+	
 	private String mappingModel;
 	private String complexity;
 	private String clientId;
@@ -63,7 +63,6 @@ public class NeuralResponse {
 		this.clientId = neuralnetwork.getClientId();
 		this.complexity = neuralnetwork.getComplexity();
 		this.mappingModel = neuralnetwork.getMappingModel();
-		this.responseId = neuralnetwork.getResponseId();
 		this.moreInformation = neuralnetwork.getMoreInformation();
 	}
 
@@ -95,19 +94,7 @@ public class NeuralResponse {
 		this.clientId = clientId;
 	}
 
-	/**
-	 * @return responseId
-	 */
-	public String getResponseId() {
-		return responseId;
-	}
 
-	/**
-	 * @param responseId
-	 */
-	public void setResponseId(String responseId) {
-		this.responseId = responseId;
-	}
 
 	/**
 	 * @return mappingModel

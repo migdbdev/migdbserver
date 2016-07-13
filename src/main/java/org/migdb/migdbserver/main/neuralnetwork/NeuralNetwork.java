@@ -17,6 +17,8 @@
  */
 package org.migdb.migdbserver.main.neuralnetwork;
 
+import java.util.UUID;
+
 import org.migdb.migdbserver.main.resources.MappingRequestMessage;
 
 /**
@@ -24,7 +26,7 @@ import org.migdb.migdbserver.main.resources.MappingRequestMessage;
  *@description Class to access neural network core functionalities 
  */
 public class NeuralNetwork {
-	private String responseId = "RES745867498";
+	
 	private String mappingModel;
 	private String complexity;
 	private String clientId;
@@ -72,7 +74,7 @@ public class NeuralNetwork {
 	 * @description preparing neural network response parameters
 	 */
 	public NeuralNetwork(MappingRequestMessage mappingrequestmessage) {
-
+		
 		this.clientId = mappingrequestmessage.getClientId();
 		this.requestId = mappingrequestmessage.getRequestId();
 
@@ -101,19 +103,7 @@ public class NeuralNetwork {
 
 	}
 
-	/**
-	 * @return
-	 */
-	public String getResponseId() {
-		return responseId;
-	}
-
-	/**
-	 * @param responseId
-	 */
-	public void setResponseId(String responseId) {
-		this.responseId = responseId;
-	}
+	
 
 	/**
 	 * @return
@@ -170,5 +160,9 @@ public class NeuralNetwork {
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
 	}
+	
+	public static String getNextUUID() {
+        return UUID.randomUUID().toString();
+    }
 
 }

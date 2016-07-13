@@ -292,9 +292,9 @@ public class NetworkConfiguration {
 	 */
 	public NetworkConfiguration() {
 
-		tableInfoFilePath = "/\\GAYANPC/webapps/networks/learningset/tableinfo.txt";
-		trainedNetworkFile = "/\\GAYANPC/webapps/networks/datainspector/trainedNetwork.txt";
-		emptyNetworkFile = "/\\GAYANPC/webapps/networks/datainspector/emptyNetwork.txt";
+		tableInfoFilePath = FilePath.DOCUMENT.getPath() + FilePath.TRAININGSET.getPath();
+		trainedNetworkFile = FilePath.DOCUMENT.getPath() + FilePath.TRAINEDNETWORK.getPath();
+		emptyNetworkFile = FilePath.DOCUMENT.getPath() + FilePath.EMPTYNETWORK.getPath();
 		delimeter = ",";
 		inputCount = 4;
 		outputCount = 1;

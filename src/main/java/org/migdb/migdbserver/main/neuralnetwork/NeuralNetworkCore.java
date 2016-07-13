@@ -54,7 +54,7 @@ public class NeuralNetworkCore implements LearningEventListener {
 
 		System.out.println("Creating neural network...");
 		MultiLayerPerceptron neuralNet = new MultiLayerPerceptron(TransferFunctionType.SIGMOID, config.getInputCount(),
-				config.getFirstHiddenLayerCount(), config.getOutputCount());
+				config.getFirstHiddenLayerCount(),config.getSecondHiddenLayerCount(), config.getOutputCount());
 
 		System.out.println("Neural network created!");
 

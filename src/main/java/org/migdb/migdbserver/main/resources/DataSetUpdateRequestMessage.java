@@ -99,6 +99,7 @@ public class DataSetUpdateRequestMessage {
 				+ String.valueOf((double) this.getNumericCount()) + "," + String.valueOf((double) this.getStringCount())
 				+ "," + String.valueOf((double) this.getCalenderCount()) + ","
 				+ String.valueOf((double) this.getModelvalue());
+				
 		System.out.println("update value row : " + text);
 		return text;
 	}

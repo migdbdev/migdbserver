@@ -41,7 +41,6 @@ public class MappingRequestMessage {
 			int columnCount, int numericCount, int stringCount, int calenderCount) {
 		this.clientId = clientId;
 		this.requestId = requestId;
-	
 		this.columnCount = columnCount;
 		this.numericCount = numericCount;
 		this.stringCount = stringCount;
