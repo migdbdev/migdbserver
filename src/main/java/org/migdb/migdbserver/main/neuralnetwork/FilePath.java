@@ -1,11 +1,13 @@
 package org.migdb.migdbserver.main.neuralnetwork;
 
+import java.io.File;
+
 public enum FilePath {
 
-	DOCUMENT(System.getProperty("user.home") + "\\" + "Documents\\MigDB\\NeuralNetwork"),
-	TRAININGSET("\\tableinfo.txt"),
-	TRAINEDNETWORK("\\trainedNetwork.txt"),
-	EMPTYNETWORK("\\emptyNetwork.txt");
+	DOCUMENT(System.getProperty("user.home") + File.separator + "Documents"+File.separator+"MigDB"+File.separator+"NeuralNetwork"+File.separator),
+	TRAININGSET("tableinfo.txt"),
+	TRAINEDNETWORK("trainedNetwork.txt"),
+	EMPTYNETWORK("emptyNetwork.txt");
 
 	private String path;
 
