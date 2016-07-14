@@ -1,5 +1,22 @@
 <h1>MIGDB SERVER APPLICATION</h1>
-</br>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-yw4l{vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-yw4l">Version</th>
+    <th class="tg-yw4l">Build Status</th>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">v1.00</td>
+    <td class="tg-yw4l">
+    <img src="https://travis-ci.org/migdbdev/migdbserver.svg?branch=master"/>
+    </td>
+  </tr>
+</table>
 <h2>Instructions</h2>
 <p>When you need to access services of MigDB server please follow below steps</p>
 <h4>Step1:</h4>
