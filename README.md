@@ -17,7 +17,7 @@
 <h4>[for updating learning data set]</h4>
 <p>Create object from /migdbserver/src/main/java/org/migdb/migdbserver/main/resources/DataSetUpdateRequestMessage and encode to JSON or XML format. Send [POST] request to <a href="http://{your-host}:8080/migdbserver/services/learnnetwork">http://{your-host}:8080/migdbserver/services/learnnetwork</a></p>
 <p>&nbsp;</p>
-
+<hr/>
 <p style="text-align: left;"><strong>Sample API Request</strong></p>
 <p style="text-align: left;"><strong>---url</strong><br />[post] http://localhost:8080/migdbserver/services/mappingrequest</p>
 <p style="text-align: left;"><strong>---basic authentication</strong><br />username : fhgi8598ugh985yhob580uojg0t<br />password : dfjgn984u608jb950o9bipj0945yjpbjmgi</p>
