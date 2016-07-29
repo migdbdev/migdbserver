@@ -27,5 +27,7 @@ public class ErrorCodes {
 	public static String GENERIC_ERROR = "4005";
 	public static String UNAUTHORIZED_NO_HEADER_PARAM = "4006";
 	public static String UNAUTHORIZED_INVALID_HEADER_PARAM = "4007";
+	public static String UNABLE_CREATE_JSON_FILE = "4008";
+	public static String UNABLE_WRITE_JSON_FILE = "4009";
 
 }

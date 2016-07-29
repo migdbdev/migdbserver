@@ -26,7 +26,7 @@ public class RequestMessageParameterException extends RuntimeException {
 
 	public RequestMessageParameterException(String message) {
 		super(message);
-		// TODO Auto-generated constructor stub
+	
 	}
 
 }

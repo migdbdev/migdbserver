@@ -17,8 +17,6 @@
  */
 package org.migdb.migdbserver.main;
 
-
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -27,15 +25,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.UriInfo;
 
 import org.migdb.migdbserver.main.config.AuthenticationParameters;
 import org.migdb.migdbserver.main.neuralnetwork.NetworkConfiguration;
 import org.migdb.migdbserver.main.neuralnetwork.NeuralNetworkCore;
 import org.migdb.migdbserver.main.neuralnetwork.UpdateNetwork;
 import org.migdb.migdbserver.main.resources.DataSetUpdateRequestMessage;
-
 import org.migdb.migdbserver.main.resources.NetworkResponse;
 import org.migdb.migdbserver.main.services.AuthorizationFilter;
 

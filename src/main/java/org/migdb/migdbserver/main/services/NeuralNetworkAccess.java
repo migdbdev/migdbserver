@@ -27,6 +27,10 @@ import org.migdb.migdbserver.main.resources.NeuralResponse;
  */
 
 public class NeuralNetworkAccess {
+	
+	public NeuralNetworkAccess(){
+		
+	}
 
 	/**
 	 * @param mappingrequest

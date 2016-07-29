@@ -67,6 +67,28 @@ public class NetworkConfiguration {
 	
 	private String delimeter;
 	
+	private static String COLLECTION_STRUCTURE_FORMAT = "json";
+	
+	public String getTrainedNetworkFile() {
+		return trainedNetworkFile;
+	}
+
+	public void setTrainedNetworkFile(String trainedNetworkFile) {
+		this.trainedNetworkFile = trainedNetworkFile;
+	}
+
+	public String getCOLLECTION_STRUCTURE_FORMAT() {
+		return COLLECTION_STRUCTURE_FORMAT;
+	}
+
+	public void setCOLLECTION_STRUCTURE_FORMAT(String cOLLECTION_STRUCTURE_FORMAT) {
+		COLLECTION_STRUCTURE_FORMAT = cOLLECTION_STRUCTURE_FORMAT;
+	}
+
+	public void setTableInfoFilePath(String tableInfoFilePath) {
+		this.tableInfoFilePath = tableInfoFilePath;
+	}
+
 	/**
 	 * @return
 	 */

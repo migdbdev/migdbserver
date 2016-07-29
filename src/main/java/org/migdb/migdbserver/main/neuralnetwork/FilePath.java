@@ -7,7 +7,8 @@ public enum FilePath {
 	DOCUMENT(System.getProperty("user.home") + File.separator + "Documents"+File.separator+"MigDB"+File.separator+"NeuralNetwork"+File.separator),
 	TRAININGSET("tableinfo.txt"),
 	TRAINEDNETWORK("trainedNetwork.txt"),
-	EMPTYNETWORK("emptyNetwork.txt");
+	EMPTYNETWORK("emptyNetwork.txt"),
+	COLLECTIONSTORE(System.getProperty("user.home") + File.separator + "Documents"+File.separator+"MigDB"+File.separator+"CollectionStore"+File.separator);
 
 	private String path;
 
