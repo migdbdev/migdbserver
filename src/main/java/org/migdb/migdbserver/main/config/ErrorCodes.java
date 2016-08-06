@@ -19,15 +19,15 @@ package org.migdb.migdbserver.main.config;
 
 public class ErrorCodes {
 
-	public static String INVALID_PARAMETRS = "4000";
-	public static String COLUM_COUNT_INVALID = "4001";
-	public static String NUMERIC_COUNT_INVALID = "4002";
-	public static String STRING_COUNT_INVALID = "4003";
-	public static String CALENDER_COUNT_INVALID = "4004";
-	public static String GENERIC_ERROR = "4005";
-	public static String UNAUTHORIZED_NO_HEADER_PARAM = "4006";
-	public static String UNAUTHORIZED_INVALID_HEADER_PARAM = "4007";
-	public static String UNABLE_CREATE_JSON_FILE = "4008";
-	public static String UNABLE_WRITE_JSON_FILE = "4009";
+	public static final String INVALID_PARAMETRS = "4000";
+	public static final String COLUM_COUNT_INVALID = "4001";
+	public static final String NUMERIC_COUNT_INVALID = "4002";
+	public static final String STRING_COUNT_INVALID = "4003";
+	public static final String CALENDER_COUNT_INVALID = "4004";
+	public static final String GENERIC_ERROR = "4005";
+	public static final String UNAUTHORIZED_NO_HEADER_PARAM = "4006";
+	public static final String UNAUTHORIZED_INVALID_HEADER_PARAM = "4007";
+	public static final String UNABLE_CREATE_JSON_FILE = "4008";
+	public static final String UNABLE_WRITE_JSON_FILE = "4009";
 
 }
