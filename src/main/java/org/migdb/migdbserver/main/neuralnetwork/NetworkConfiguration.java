@@ -24,13 +24,13 @@ package org.migdb.migdbserver.main.neuralnetwork;
  */
 public class NetworkConfiguration {
 
-	
+
 	private String tableInfoFilePath;
-	
+
 	private String trainingFileName;
-	
+
 	private String testFileName;
-	
+
 	private String trainedNetworkFile;
 
 	private String emptyNetworkFile;
@@ -58,17 +58,17 @@ public class NetworkConfiguration {
 	private final int STRING_WEIGHT = 15;
 
 	private final int CALENDER_WEIGHT = 10;
-	
+
 	private int firstHiddenLayerCount;
-	
+
 	private int secondHiddenLayerCount;
-	
+
 	private int outputCount;
-	
+
 	private String delimeter;
-	
+
 	private static String COLLECTION_STRUCTURE_FORMAT = "json";
-	
+
 	public String getTrainedNetworkFile() {
 		return trainedNetworkFile;
 	}
@@ -159,7 +159,7 @@ public class NetworkConfiguration {
 		return REFERENCING_NAME;
 	}
 
-	
+
 	/**
 	 * @return
 	 */
@@ -238,7 +238,7 @@ public class NetworkConfiguration {
 		this.testFileName = testFileName;
 	}
 
-	
+
 	/**
 	 * @return
 	 */
@@ -308,7 +308,7 @@ public class NetworkConfiguration {
 	public void setOutputCount(int outputCount) {
 		this.outputCount = outputCount;
 	}
-	
+
 	/**
 	 * Constructor
 	 */
@@ -320,8 +320,8 @@ public class NetworkConfiguration {
 		delimeter = ",";
 		inputCount = 4;
 		outputCount = 1;
-		firstHiddenLayerCount = 16;
-		secondHiddenLayerCount = 10;
+		firstHiddenLayerCount = 7;
+		secondHiddenLayerCount = 12;
 
 	}
 }
