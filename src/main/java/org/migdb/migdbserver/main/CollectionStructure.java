@@ -48,16 +48,16 @@ import org.migdb.migdbserver.main.services.AuthorizationFilter;
 
 @Path("/collectionstructure")
 public class CollectionStructure {
-	
+
 	@POST()
 	@Path("/save")
 	@Consumes(value = { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces(value = { MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response saveCollectionStructure(CollectionStructureJSON structure ,  @Context UriInfo uriinfo) {
 		System.out.println("service triggered");
-		
+
 		if(structure.getJsonContent().length() > 0 && structure.getJsonContent()!= null){
-		
+
 		String collectionStructure = structure.getJsonContent();
 		org.json.JSONObject jsonObject = new JSONObject(collectionStructure);
 		String nameIdentifier = getNextUUID();
@@ -70,16 +70,16 @@ public class CollectionStructure {
 			if(filecreated){
 				try(FileWriter filewriter = new FileWriter(dynamicFilename);){
 					filewriter.write(jsonObject.toString());
-					MappingResponse response = new MappingResponse("Json file successfully created");
+					MappingResponse response = new MappingResponse("Json file successfully created",nameIdentifier);
 					System.out.println("JSon File Created: "+dynamicFilename);
 					return Response.status(Status.OK).header("Entrypoint", uriinfo.getAbsolutePath())
 							.header(AuthenticationParameters.AUTHORIZATION_HEADER_KEY, AuthorizationFilter.HTTPBasicAuthFilter(
 									AuthenticationParameters.SERVER_ID, AuthenticationParameters.SERVER_SECURITY_KEY))
 							.header("structureConsumerURI",uriinfo.getBaseUri()+"collectionstructure/get/"+nameIdentifier)
 							.entity(response).build();
-					
-					
-					
+
+
+
 				} catch (IOException e) {
 					ErrorMessage errormessage = new ErrorMessage(ErrorCodes.UNABLE_WRITE_JSON_FILE, e.getMessage(),
 							"path to documentation");
@@ -113,11 +113,11 @@ public class CollectionStructure {
 					.header(AuthenticationParameters.AUTHORIZATION_HEADER_KEY, AuthorizationFilter.HTTPBasicAuthFilter(
 							AuthenticationParameters.SERVER_ID, AuthenticationParameters.SERVER_SECURITY_KEY))
 					.build();
-			
+
 		}
 
 	}
-	
+
 	@GET()
 	@Path("/get/{jsonfile}")
 	public Response getJSONFile(@PathParam("jsonfile") String jsonfile,  @Context UriInfo uriinfo) {
@@ -127,7 +127,7 @@ public class CollectionStructure {
 			String jsonURI = storePath + jsonfile + ".json";
 			String content = readFile(jsonURI, Charset.defaultCharset());
 			if(content.length() > 0){
-			System.out.println("JSON file returned ("+jsonfile+".json)");	
+			System.out.println("JSON file returned ("+jsonfile+".json)");
 			return Response.status(Status.OK).header("Entrypoint", uriinfo.getAbsolutePath())
 					.header(AuthenticationParameters.AUTHORIZATION_HEADER_KEY, AuthorizationFilter.HTTPBasicAuthFilter(
 							AuthenticationParameters.SERVER_ID, AuthenticationParameters.SERVER_SECURITY_KEY))
@@ -141,7 +141,7 @@ public class CollectionStructure {
 								AuthenticationParameters.SERVER_ID, AuthenticationParameters.SERVER_SECURITY_KEY))
 						.build();
 			}
-			
+
 		} catch (IOException e) {
 			ErrorMessage errormessage = new ErrorMessage(ErrorCodes.GENERIC_ERROR,e.getMessage(),
 					"path to documentation");
@@ -161,13 +161,13 @@ public class CollectionStructure {
 		}
 
 	}
-	
+
 	public static String getNextUUID() {
         return UUID.randomUUID().toString();
     }
 
-	public static String readFile(String path, Charset encoding) 
-			  throws IOException 
+	public static String readFile(String path, Charset encoding)
+			  throws IOException
 	{
 	  byte[] encoded = Files.readAllBytes(Paths.get(path));
 	  return new String(encoded, encoding);

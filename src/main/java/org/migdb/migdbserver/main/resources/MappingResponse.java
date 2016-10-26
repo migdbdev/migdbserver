@@ -31,7 +31,7 @@ import org.migdb.migdbserver.main.config.AuthenticationParameters;
 @XmlRootElement
 public class MappingResponse {
 
-	
+
 	private String clientId;
 	private String requestId;
 	private Date createdTime;
@@ -40,7 +40,7 @@ public class MappingResponse {
 	private String complexity;
 	private String moreInformation;
 	private String response;
-	
+
 
 	public String getResponse() {
 		return response;
@@ -61,7 +61,7 @@ public class MappingResponse {
 	 */
 	public MappingResponse(String clientId, String requestId, String mappingModel,
 			String moreInformation, String complexity) {
-		
+
 		this.clientId = clientId;
 		this.requestId = requestId;
 		this.createdTime = new Date();
@@ -90,7 +90,19 @@ public class MappingResponse {
 		this.requestId = "";
 	}
 
-	
+	/**
+	 * @param message
+	 * @description Constructor
+	 */
+	public MappingResponse(String message, String JSONFileID) {
+		this.createdTime = new Date();
+		this.moreInformation = message;
+		this.response = JSONFileID;
+		this.clientId = AuthenticationParameters.APPLICATION_ID;
+		this.requestId = "";
+	}
+
+
 
 	/**
 	 * @return clientId
@@ -189,7 +201,7 @@ public class MappingResponse {
 	public void setMessageFromServer(String messageFromServer) {
 		this.moreInformation = messageFromServer;
 	}
-	
+
 	public static String getNextUUID() {
         return UUID.randomUUID().toString();
     }
